@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GitHub アカウント作成マニュアル</title>
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <style>
+        :root {
+            --bg-color: #f9f9f9;
+            --text-color: #333;
+            --code-bg: #282c34;
+            --code-text: #abb2bf;
+            --link-color: #0366d6;
+            --border-color: #e1e4e8;
+        }
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --bg-color: #0d1117;
+                --text-color: #c9d1d9;
+                --code-bg: #161b22;
+                --code-text: #c9d1d9;
+                --link-color: #58a6ff;
+                --border-color: #30363d;
+            }
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--bg-color);
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        h1, h2, h3 { border-bottom: 1px solid var(--border-color); padding-bottom: 0.3em; }
+        a { color: var(--link-color); text-decoration: none; }
+        a:hover { text-decoration: underline; }
+        pre { background-color: var(--code-bg); color: var(--code-text); padding: 16px; border-radius: 6px; overflow: auto; }
+        code { font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, "Liberation Mono", monospace; font-size: 85%; }
+        p code { background-color: rgba(175,184,193,0.2); padding: 0.2em 0.4em; border-radius: 6px; color: var(--text-color); }
+        blockquote { padding: 0 1em; color: #8b949e; border-left: 0.25em solid #30363d; margin: 0; }
+        .infographic { width: 100%; max-width: 600px; margin: 2rem auto; display: block; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
+    </style>
+</head>
+<body>
+    <div id="content"></div>
+    <script>
+        const markdown = `# GitHub アカウント作成マニュアル
+
+作成したコードやメモを安全にクラウド上に保存・同期するための「GitHub」のアカウント作成手順です。
+
+---
+
+## 1. GitHubとは？
+
+プログラマーが世界中で使っている「ファイルの変更履歴を保存できるクラウドサービス」です。
+Google Driveが「最新のファイル」だけを同期するのに対し、GitHubは「過去のすべての状態」を保存できるため、間違えて消してしまっても一瞬で元に戻すことができます。
+
+---
+
+## 2. アカウントの新規作成手順
+
+[SVG_BROWSER]
+
+1. **GitHub公式サイトへアクセス**
+   [https://github.com/](https://github.com/) を開きます。
+2. **Sign up（登録）をクリック**
+   画面右上の「Sign up」ボタンを押します。
+3. **情報の入力**
+   画面の指示に従って以下を入力します。
+   *   **Email address:** 普段使っているメールアドレス
+   *   **Password:** 強力なパスワード
+   *   **Username:** 好きなユーザー名（英数字。あとでURLの一部になります）
+4. **クイズ（ロボット判定）**
+   簡単なパズルを解いて、人間であることを証明します。
+5. **認証コードの入力**
+   入力したメールアドレス宛に数字のコードが届くので、それを画面に入力します。
+
+---
+
+## 3. 二段階認証（2FA）の設定（推奨）
+
+アカウントを乗っ取られないために、スマホアプリを使った二段階認証を設定しておくことを強く推奨します。
+
+[SVG_BROWSER]
+
+1. 画面右上の自分のアイコンをクリックし、**「Settings」** を選びます。
+2. 左メニューから **「Password and authentication」** をクリックします。
+3. **「Enable two-factor authentication」** ボタンを押し、画面の指示に従ってスマホの認証アプリ（Google Authenticator や 1Password など）でQRコードを読み取ります。
+
+---
+
+## 4. noreply メールアドレスの確認方法（重要）
+
+GitHubにファイルを保存（Push）すると、通常は登録したメールアドレスが公開されてしまいます。
+プライバシーを守るために、GitHubが用意する「ダミーのメールアドレス（noreplyメール）」を使用します。
+
+<svg class="infographic" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 150">
+  <rect width="600" height="150" rx="12" fill="#fafafa" stroke="#e1e4e8" stroke-width="2"/>
+  <rect x="20" y="20" width="560" height="40" rx="6" fill="#f1f8ff" stroke="#c8e1ff"/>
+  <text x="40" y="45" fill="#0366d6" font-size="16" font-family="monospace" font-weight="bold">12345678+username@users.noreply.github.com</text>
+  <text x="40" y="90" fill="#586069" font-size="14">この形式のアドレスを、Gitの初期設定で使用します。</text>
+  <text x="40" y="115" fill="#d73a49" font-size="14">⚠️ ご自身の実際のアドレス（@gmail.com等）はGitに登録しないでください。</text>
+</svg>
+
+[SVG_BROWSER]
+
+1. 画面右上のアイコン → **「Settings」** を選びます。
+2. 左メニューから **「Emails」** を選びます。
+3. **「Keep my email addresses private」** にチェックを入れます。
+4. そのすぐ下に表示されている \`数字+ユーザー名@users.noreply.github.com\` というアドレスをメモしておきます。これがGit設定で使うアドレスです。
+
+これでGitHubの準備は完了です！
+`;
+        const finalMarkdown = markdown
+            .replace(/\[SVG_APP_UI\]/g, `<svg class="infographic" style="max-width: 450px; margin: 10px 0;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 450 70">
+  <rect width="450" height="70" rx="8" fill="#f0f6fc" stroke="#c9d1d9" stroke-width="2"/>
+  <circle cx="35" cy="35" r="18" fill="#2ea043"/>
+  <path d="M25 35 L32 42 L45 27" stroke="#fff" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="65" y="30" fill="#24292f" font-family="sans-serif" font-size="15" font-weight="bold">アプリ上の操作</text>
+  <text x="65" y="52" fill="#57606a" font-family="sans-serif" font-size="14">アプリの画面を開いて、以下の通りに設定します</text>
+</svg>`)
+            .replace(/\[SVG_BROWSER\]/g, `<svg class="infographic" style="max-width: 450px; margin: 10px 0;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 450 70">
+  <rect width="450" height="70" rx="8" fill="#fff" stroke="#d2d3d7" stroke-width="2"/>
+  <circle cx="35" cy="35" r="18" fill="#4285f4"/>
+  <circle cx="35" cy="35" r="8" fill="#fff"/>
+  <path d="M35 17 L35 25 M35 45 L35 53 M17 35 L25 35 M45 35 L53 35" stroke="#fff" stroke-width="2"/>
+  <text x="65" y="30" fill="#333" font-family="sans-serif" font-size="15" font-weight="bold">ブラウザでの操作</text>
+  <text x="65" y="52" fill="#666" font-family="sans-serif" font-size="14">Chromeなどのブラウザを開いて操作します</text>
+</svg>`);
+
+        document.getElementById('content').innerHTML = marked.parse(finalMarkdown);
+    </script>
+</body>
+</html>
